@@ -23,7 +23,9 @@ from account.views import *
 urlpatterns = [
 
     path('',home,name="home"),
-    path('success_page/',success_page,name="success_page"),
+    path('home/',home,name="home"),
+    path('about/',about,name="about"),
+    path('services/',services,name="services"),
 
     path('admin/', admin.site.urls),
 ]

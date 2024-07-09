@@ -1,9 +1,29 @@
-<!DOCTYPE html>
-<html>
-<body>
+{% extends "master\template.html" %}
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+<!-- start block -->
+{% block myblock %}
 
-</body>
-</html> 
+    <h1>{{page}}</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+            </tr>
+        </thead>
+         <tbody>
+    {% for people in peoples %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{people.name}}</td>
+            <td>{{people.age}}</td>
+          </tr>
+
+    {% endfor %}
+
+        </tbody>
+    </table>
+
+{% endblock  %}
+<!-- end block -->
