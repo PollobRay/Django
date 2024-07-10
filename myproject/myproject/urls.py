@@ -23,9 +23,11 @@ from account.views import *
 urlpatterns = [
 
     path('',home,name="home"),
-    path('home/',home,name="home"),
     path('about/',about,name="about"),
     path('services/',services,name="services"),
+    path('view_data/',view_data,name="view_data"),
+    path('add/',add_student,name="add_student"),
+    path("update/<int:id>",update_student,name="update_student"),
 
     path('admin/', admin.site.urls),
 ]
