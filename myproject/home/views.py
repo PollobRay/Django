@@ -38,5 +38,23 @@ def add_student(request):
         return redirect('view_data')
     return render(request,"add_student.html")
 
-def update_student(request,id):             # here 'id' and url 'id' must be same
-    return render(request,"update_student.html")
+
+def update_student(request,id):             # id is passed through url, here 'id' and url 'id' must be same
+    std=Student.objects.get(pk=id)  # pk means primary key
+
+    if request.method == "POST":
+        std.name = request.POST.get("name")
+        std.email = request.POST.get("email")
+        std.age = request.POST.get("age")
+        std.save()
+        return redirect('view_data')        # if it is post request then update and redirect
+    
+    return render(request,"update_student.html", context={'std':std})
+
+def delete_student(request):
+    if request.method == "GET":
+        id = request.GET.get('id')
+        std=Student.objects.get(pk=id)
+        std.delete()
+        return redirect('view_data')
+    return render(request,"delete_student.html")

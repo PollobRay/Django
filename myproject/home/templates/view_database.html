@@ -19,13 +19,13 @@
         <tbody>
     {% for std in students %}
         <tr>
-            <th scope="row">{{std.id}}</th>
+            <th scope="row">{{forloop.counter}}</th>
             <td>{{std.name}}</td>
             <td>{{std.age}}</td>
             <td>{{std.email}}</td>
             <td><a href="{% url 'update_student' std.id %}"><button type="button" class="btn btn-success">Update</button></a>
                                     <!-- Student id is Passed Here -->
-                <a href="{% url 'add_student' %}"> <button type="button" class="btn btn-danger">Delete</button><a>
+                <a href="{% url 'delete_student' %}?id={{ std.id }}"> <button type="button" class="btn btn-danger">Delete</button><a>
             </td>
         </tr>
 

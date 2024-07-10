@@ -27,7 +27,8 @@ urlpatterns = [
     path('services/',services,name="services"),
     path('view_data/',view_data,name="view_data"),
     path('add/',add_student,name="add_student"),
-    path("update/<int:id>",update_student,name="update_student"),
+    path("update/<int:id>",update_student,name="update_student"),   # 'id' is passed through url
+    path("delete",delete_student,name="delete_student"),            # 'id' is passed through url, another way
 
     path('admin/', admin.site.urls),
 ]
